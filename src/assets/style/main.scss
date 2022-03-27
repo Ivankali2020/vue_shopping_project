@@ -1,0 +1,23 @@
+
+$theme-colors: (
+        "primary":#73de4d,
+        "secondary":rgba(100, 190, 67, 0.8),
+        "grey" : #cecece,
+        "grey-200" : #9d9b9b,
+        'cBlack' : #131313,
+        'cBlack-200' : #2f2f2f,
+        "danger" : #750202,
+
+);
+.btn:focus,.btn:active:focus,.btn.active:focus,
+.btn.focus,.btn:active.focus,.btn.active.focus {
+  outline: none !important;
+  box-shadow:none !important;
+
+}
+.swal2-styled.swal2-default-outline:focus{
+  outline: none !important;
+  box-shadow:none !important;
+}
+
+@import "~bootstrap/scss/bootstrap";
