@@ -21,7 +21,7 @@
                 </div>
 
               </div>
-              <div class="col-md-8 mt-3 mt-md-0  d-flex flex-column  justify-content-between   ">
+              <div class="col-md-8 mt-3 mt-md-0  d-flex flex-column  justify-content-between text-secondary">
                 <h1 class="fw-bolder "> {{ Product.title }}</h1>
 
                 <div>
@@ -31,7 +31,7 @@
                   </span>
                 </div>
 
-                <div class="d-flex justify-content-between align-items-baseline mt-3 mt-md-0  ">
+                <div class="d-flex justify-content-between mt-3   ">
                   <h4 class="fw-bolder mb-0 align-self-end fw-bolder  h1">
                     <span class="text-secondary me-2">$</span>
                     <span class="">{{ Product.price }}</span>
@@ -71,7 +71,7 @@ export default {
    ...mapGetters(['Product'])
   },
   methods: {
-    ...mapActions(['getProduct']),
+    ...mapActions(['getProduct','storeCart']),
     orderConfirm(){
       this.$swal({
         title: 'Are you sure?',
@@ -83,9 +83,12 @@ export default {
         confirmButtonText: 'Yes, add it!'
       }).then((result) => {
         if (result.isConfirmed) {
+          console.log(JSON.stringify(this.Product));
+          let data = { qualtity : this.qualtity , product_id : this.id }
+          this.storeCart(data);
           this.$swal(
               'Added!',
-              'Your file has been deleted.',
+              'Your cart has been added.',
               'success'
           )
         }

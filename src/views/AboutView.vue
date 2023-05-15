@@ -3,16 +3,16 @@
    <div class="container mt-3  ">
     <Transition name="list">
       <div v-if="Products" class="row " >
-        <div  class="col-md-3 mb-2 col-lg-2" v-for="product in Products">
-          <div class="card shadow-sm mt-5 animate__animated animate__fadeIn">
+        <div  class="col-md-3 mb-2 col-lg-2" v-for="product in Products" :key="product.id">
+          <div class="card shadow-sm mt-5 d-flex flex-column justify-content-between ">
             <div class=" m-auto" >
-              <img :src="product.image" class="foods" width="100" alt="">
+              <img :src="product.image" class="foods animate__animated animate__fadeIn" width="100%" alt="">
             </div>
             <div class="card-body ">
               <div >
-                <h1 class="mb-1 h4  fw-bolder text-grey-200  ">{{ product.title.substr(0,10) }}</h1>
+                <h1 class="mb-1 h5  fw-bolder text-grey-200  ">{{ product.title.substr(0,20) }}</h1>
                 <p class="mb-3  small text-grey-200 " style="font-size: 10px;text-align: justify">
-                  {{ product.short_desc }}
+                  {{ product.description.substr(0,100) }} ....
                 </p>
               </div>
               <div class="d-flex justify-content-between align-items-baseline mt-3  ">
@@ -87,6 +87,7 @@
   -webkit-backdrop-filter: blur(13px) saturate(85%) !important;
   background-color: rgba(255, 255, 255, 0);
   border: 1px solid #02361c;
+  min-height: 230px;
 }
 
 .card:hover img{
@@ -98,7 +99,7 @@
   margin-bottom: -2rem !important;
 }
 .carousel-indicators [data-bs-target]{
- height: 8px;
+  height: 8px;
   width: 8px;
   border-radius: 50%;
   margin: 0 10px;
